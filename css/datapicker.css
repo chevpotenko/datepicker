@@ -1,0 +1,91 @@
+.datapicker{
+	position: relative;
+}
+.datapicker-header{
+	margin: 10px 0;
+	text-align: center;
+}
+.datapicker-header > span{
+	display: inline-block;
+	margin-right: 3px;
+	height: 17px;
+	vertical-align: middle;
+	border: 1px solid #000;
+	cursor:pointer;
+}
+.datapicker-next,
+.datapicker-prev{
+	width: 15px;
+}
+.datapicker-month{
+	width: 70px;
+}
+.datapicker-year{
+	position: relative;
+	width: 50px;
+}
+.datapicker-year:after{
+	content: ' ';
+	position: absolute;
+	right: 3px;
+	top: 50%;
+	margin-top: -2px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 4px 3px 0 3px;
+	border-color: #000000 transparent transparent transparent;
+}
+.datapicker table{
+	width: 100%;
+}
+.datapicker td{
+	cursor: pointer;
+	text-align: center;
+}
+.datapicker-years{
+	display: block;
+	position: absolute;
+	top: 22px;
+	left: 98px;
+	width: 45px;
+	margin: 0;
+	padding: 0 20px 0 5px;
+	height: 72px;
+	background: #eee;
+	cursor:pointer;
+	overflow: hidden;
+}
+.datapicker-years.active{
+	display: block;
+}
+.datapicker-years-list{
+	position: absolute;
+	top: 0;
+	left: 5px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	background-color: #e1e1e1;
+}
+.datapicker-years-list li{
+	display: block;
+	padding: 0 5px;
+	margin-bottom: 0px;
+}
+.datapicker td,
+.datapicker-next,
+.datapicker-prev,
+.datapicker-years-list li{
+	transition: color .3s ease,
+		background-color .3s ease;
+}
+.datapicker td.active,
+.datapicker td:not(:empty):hover,
+.datapicker-next:hover,
+.datapicker-prev:hover,
+.datapicker-years-list li:hover,
+.datapicker-years-list li.active{
+	background: #000;
+	color: #fff;
+}

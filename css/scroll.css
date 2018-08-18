@@ -1,0 +1,32 @@
+.scroll-bar {
+	position: absolute;
+	top: 0;
+	right: 3px;
+	height: 20px;
+	width:5px;
+	background: #fff;
+	border: 1px solid #000;
+	transition: background-color .3s ease;
+}
+.scroll-bar:hover{
+	background-color: #000;
+}
+.top{
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100px;
+	height: 1px;
+	background-color: red;
+	z-index: 99;
+}
+.bottom{
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100px;
+	height: 1px;
+	background-color: red;
+	z-index: 99;
+}
+
