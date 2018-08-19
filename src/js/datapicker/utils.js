@@ -1,4 +1,4 @@
-export default function(tag, className, content) {
+module.exports = function createEl(tag, className, content) {
     var el = document.createElement(tag);
 
     if (className){

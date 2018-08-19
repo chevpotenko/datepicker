@@ -1,8 +1,8 @@
-import modelPrototype from './model.prototype.js';
+var modelPrototype = require('./model.prototype');
 
 Model.prototype = modelPrototype;
 
-export default function Model() {
+function Model() {
     
     var date = new Date();  
     this.day = date.getDate();
@@ -14,3 +14,5 @@ export default function Model() {
         days: []
     }  
 }
+
+module.exports = Model;

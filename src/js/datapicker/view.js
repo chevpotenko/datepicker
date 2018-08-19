@@ -1,9 +1,9 @@
-import createEl from  './utils.js';
-import viewPrototype from  './view.prototype.js';
+var createEl = require('./utils');
+var viewPrototype = require('./view.prototype');
 
 View.prototype = viewPrototype;
 
-export default function View(element, model) {
+function View(element, model) {
 
 	var yearsList = this.createListYears(model.year, model.years);
 
@@ -37,3 +37,5 @@ export default function View(element, model) {
 		return datapicker;
 	}
 }
+
+module.exports = View;

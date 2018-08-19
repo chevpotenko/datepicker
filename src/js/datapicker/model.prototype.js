@@ -1,4 +1,4 @@
-export default {
+var modelPrototype = {
 	weekdayNames: [
 		'Пн',
 		'Вт',
@@ -98,20 +98,7 @@ export default {
 
 		if(patterns[inputObj.selectionStart].test(event.key)) {
 			dateArr[inputObj.selectionStart] = event.key
-		}
-		
-		// dateStr = patterns.map(function(rgx, index) {
-		// 	console.log(index)            
-		// 	if (index != 2 && index != 5) {
-		// 		if(rgx.test(parseInt(dateArr[index]))) {					
-		// 			return dateArr[index];
-		// 		} else {
-		// 			return '_';
-		// 		}
-		// 	} else {
-		// 		return '.';
-		// 	}            
-		// }).join('');
+		}	
 
 		dateStr = dateArr.join('');
 
@@ -125,3 +112,5 @@ export default {
 		return pattern.test(dateStr);
 	}
 }
+
+module.exports = modelPrototype;
