@@ -1,6 +1,7 @@
-import createEl from  './utils.js';
+var createEl = require('./utils');
+var tmpl = require('../lib/templater');
 
-export default {
+var viewPrototype = {
 	templateCalendar: '<table>'+
 			'<thead>'+
 				'<tr>'+
@@ -65,3 +66,5 @@ export default {
 		return list;
     }
 }
+
+module.exports = viewPrototype;

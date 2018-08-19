@@ -1,4 +1,4 @@
-export default {
+var controllerPrototype = {
 	init: function(model, view) {
 		model.calendar.days = model.fillDays();
 		view.init(model);
@@ -35,3 +35,5 @@ export default {
 		return target.tagName != tag ? false : target;
 	}
 }
+
+module.exports = controllerPrototype;
