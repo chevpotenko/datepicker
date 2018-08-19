@@ -86,7 +86,6 @@ var modelPrototype = {
 				/[0-9]/,
 				/[0-9]/
 			],
-<<<<<<< HEAD:js/datapicker/model.prototype.js
 			dateStr = null,
 			incorrectSymbols = [],
 			cursorPos,
@@ -104,27 +103,10 @@ var modelPrototype = {
 				return '.';
 			}            
 		}).join('');
-=======
-			dateStr = null,			
-			dateArr = ['_', '_', '.','_', '_', '.','_', '_', '_','_'],
-			selectionStart = inputObj.selectionStart,
-			selectionEnd = inputObj.selectionEnd;		
-			console.log( inputObj.selectionStart)
-
-		if ( inputObj.selectionStart > 9 || !patterns[inputObj.selectionStart].test(event.key) ){
-			selectionStart = selectionStart - 1;		
-		}
-
-		if(patterns[inputObj.selectionStart].test(event.key)) {
-			dateArr[inputObj.selectionStart] = event.key
-		}	
-
-		dateStr = dateArr.join('');
->>>>>>> develop:src/js/datapicker/model.prototype.js
 
 		inputObj.value = dateStr;
 		cursorPos = incorrectSymbols.length ? incorrectSymbols[0] : patternRgx.length;
-		inputObj.selectionStart = cursorPos
+		inputObj.selectionStart = cursorPos;
 		inputObj.selectionEnd = cursorPos;
 	},
 	validateDate: function(dateStr) {
