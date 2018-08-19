@@ -73,8 +73,8 @@ export default {
 			return year + value
 		});
     },
-	validateSymbols: function(inputObj, event){
-		var patterns = [
+	validateSymbols: function(inputObj){
+		var patternRgx = [
 				/[1-3]/,
 				/[0-9]/,
 				/./,
@@ -82,43 +82,32 @@ export default {
 				/[0-9]/,
 				/./,
 				/[1-2]/,
-				/[09]/,
+				/[0-9]/,
 				/[0-9]/,
 				/[0-9]/
 			],
-			dateStr = null,			
-			dateArr = ['_', '_', '.','_', '_', '.','_', '_', '_','_'],
-			selectionStart = inputObj.selectionStart,
-			selectionEnd = inputObj.selectionEnd;		
-			console.log( inputObj.selectionStart)
-
-		if ( inputObj.selectionStart > 9 || !patterns[inputObj.selectionStart].test(event.key) ){
-			selectionStart = selectionStart - 1;		
-		}
-
-		if(patterns[inputObj.selectionStart].test(event.key)) {
-			dateArr[inputObj.selectionStart] = event.key
-		}
+			dateStr = null,
+			incorrectSymbols = [],
+			cursorPos,
+			dateArr = inputObj.value.split('');	
 		
-		// dateStr = patterns.map(function(rgx, index) {
-		// 	console.log(index)            
-		// 	if (index != 2 && index != 5) {
-		// 		if(rgx.test(parseInt(dateArr[index]))) {					
-		// 			return dateArr[index];
-		// 		} else {
-		// 			return '_';
-		// 		}
-		// 	} else {
-		// 		return '.';
-		// 	}            
-		// }).join('');
+		dateStr = patternRgx.map(function(rgx, index) {
+			if (index != 2 && index != 5) {
+				if(rgx.test(parseInt(dateArr[index]))) {					
+					return dateArr[index];
+				} else {
+					incorrectSymbols.push(index);
+					return '_';
+				}
+			} else {
+				return '.';
+			}            
+		}).join('');
 
-		dateStr = dateArr.join('');
-
-		inputObj.value = dateStr;		
-		inputObj.selectionStart = selectionStart;
-		inputObj.selectionEnd = selectionEnd;
-		console.log(dateStr)
+		inputObj.value = dateStr;
+		cursorPos = incorrectSymbols.length ? incorrectSymbols[0] : patternRgx.length;
+		inputObj.selectionStart = cursorPos
+		inputObj.selectionEnd = cursorPos;
 	},
 	validateDate: function(dateStr) {
 		var pattern = /(0[1-9]|[12]\d|3[01]).(0[1-9]|1[0-2]).([12]\d{3})/;
