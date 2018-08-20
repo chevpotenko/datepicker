@@ -1,16 +1,8 @@
-Scrollbar.prototype.view = {
-	getHeight : function(element) {
-		return element.offsetHeight;
-	}
-}
-
 function Scrollbar(element) {
 
-	View.prototype = this.view;
-
-	var model = new Model();
-	var view = new View(model, element);
-	var controller = new Controller(model, view);
+	this.model = new Model();
+	this.view = new View(this.model, element);
+	this.controller = new Controller(this.model, this.view);
 
 	function Model() {
 		this.paddingY = 0;
@@ -24,12 +16,14 @@ function Scrollbar(element) {
 	};
 
 	function View(model, element) {
-		this.root = document.getElementsByClassName(element)[0];
+		this.root = document.querySelectorAll(element)[0];
 		this.scrollbar = createScrollbar();
 		this.root.appendChild(this.scrollbar);
-		this.top = document.getElementsByClassName('top')[0];
-		this.bottom = document.getElementsByClassName('bottom')[0];
-		this.years = document.getElementsByClassName('datapicker-years-list')[0];
+		this.years = this.root.getElementsByClassName('datapicker-years-list')[0];
+
+		this.getHeight = function(element) {
+			return element.offsetHeight;
+		}
 
 		function createScrollbar() {
 			return createEl('div', 'scroll-bar');
@@ -108,8 +102,8 @@ function Scrollbar(element) {
 		}
 
 		function calcParams() {
+
 			calcSrollParam();
-			showLimits();
 			calcCoeffContentPos();
 
 			function calcSrollParam() {
@@ -122,11 +116,8 @@ function Scrollbar(element) {
 				var frameHeight = model.track - (view.getHeight(view.scrollbar)) - model.paddingY;
 				model.coeff = (view.getHeight(view.years) - model.track) / frameHeight;
 			}
-
-			function showLimits() {
-				view.top.style.top = - model.limitTop + 'px';
-				view.bottom.style.top = - model.limitBottom + 'px';
-			}
 		}
 	}
 }
+
+module.exports =  Scrollbar;

@@ -1,4 +1,2 @@
-
-
-var calendar = new DataPicker('calendar');
-var scrollbar = new Scrollbar('datapicker-years');
+var calendar1 = new DataPicker('calendar1');
+var calendar2 = new DataPicker('calendar2');

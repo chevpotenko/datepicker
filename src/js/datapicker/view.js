@@ -28,8 +28,6 @@ function View(element, model) {
 			calendar = createEl('div', 'datapicker-calendar'),
 			datapickerYears = createEl('div', 'datapicker-years');
 				
-		datapickerYears.appendChild(createEl('div', 'top'));
-		datapickerYears.appendChild(createEl('div', 'bottom'));	
 		datapickerYears.appendChild(yearsList);
 		datapicker.innerHTML = template;
 		datapicker.appendChild(datapickerYears);
