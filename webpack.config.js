@@ -4,7 +4,8 @@ module.exports = {
     entry: './src/js/datepicker/datepicker',
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'datepicker.js'
+        filename: 'datepicker.js',
+        library: ['DatePicker']
     },
     module: {
         rules: [
