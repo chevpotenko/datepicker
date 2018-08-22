@@ -52,8 +52,8 @@ var viewPrototype = {
 		this[name] = newEl;
 		this[name].classList.add('active');
 	},
-	toggelClass: function(element, name) {
-		element.classList.toggle(name);
+	toggelClass: function(element, className) {
+		element.classList.toggle(className);
 	},
 	createListYears: function(year, years) {
 		var list = createEl('ul', 'datapicker-years-list'),

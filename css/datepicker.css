@@ -1,5 +1,11 @@
-.datapicker{
+.calendar{
 	position: relative;
+}
+.datapicker{
+	display: none;
+	position: absolute;
+	top: 22px;
+	left: 0;
 }
 .datapicker-header{
 	margin: 10px 0;
@@ -44,9 +50,9 @@
 	text-align: center;
 }
 .datapicker-years{
-	display: block;
+	display: none;
 	position: absolute;
-	top: 22px;
+	top: 35px;
 	left: 98px;
 	width: 45px;
 	margin: 0;
@@ -56,6 +62,7 @@
 	cursor:pointer;
 	overflow: hidden;
 }
+.datapicker.active,
 .datapicker-years.active{
 	display: block;
 }
